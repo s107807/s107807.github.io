@@ -4,10 +4,15 @@
   </head>
   <body style="background-color:#23272A;">
     <script>
+      function sleep(delay) {
+        var start = new Date().getTime();
+        while (new Date().getTime() < start + delay);
+      }
       function testButton() {
         console.log('button pressed');
         for (var i = 0; i < 999; i++) {
           document.querySelector('#counter').innerText = i;
+          sleep(10)
         }
         document.querySelector('#testButton').innerText = 'does this work';
       }
