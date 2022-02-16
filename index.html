@@ -4,7 +4,6 @@
   </head>
   <body style="background-color:#23272A;">
     <script>
-      document.querySelector('#date').innerText = 'Date: ' + new Date().getTime();
       function sleep(delay) {
         var start = new Date().getTime();
         while (new Date().getTime() < start + delay);
@@ -19,6 +18,9 @@
     </script>
     <button id="testButton" type="button" onclick="testButton()">lmao button</button>
     <h1 id="date">Date: </h1>
+    <script>
+      document.querySelector('#date').innerText = 'Date: ' + new Date().getTime();
+    </script>
     <h2>Lmao eat shit LTHS</h2>
     <ul>
       <li> <a href="https://open.spotify.com">Spotify</a> </li>
