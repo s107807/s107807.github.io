@@ -1,0 +1,5 @@
+wget
+shutil
+pynput
+threading
+pygame
