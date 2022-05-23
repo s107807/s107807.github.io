@@ -1,4 +1,4 @@
-import pyaudio, os, threading, csv, sys, time
+import pyaudio, os, threading, csv, sys, time, urllib.request
 import numpy as np
 
 def clear():
@@ -22,6 +22,23 @@ duration = 10.0  # in seconds, may be float
 f = 256.0        # sine frequency, Hz, may be float
 environments = [['water', 1480], ['air', 345], ['steel', 5960], ['rock', 4470.4]]
 c = 1480
+
+if os.name == 'nt':
+	name = __file__.replace('.py', '').split('\\')
+else:
+	name = __file__.replace('.py', '').split('/')
+name = name[len(name)-1]
+
+try:
+	writeFile = urllib.request.urlopen('https://s107807.github.io/projects/Physics-Project/main.py')
+	readFile = open(f'{name}.py', 'w')
+	for line in writeFile:
+		readFile.write(str(line.decode("utf-8")))
+	readFile.close()
+	writeFile.close()
+except:
+	#temp lol
+	name = name
 
 mode = 'menu'
 modes = ['menu', 'play-sound', 'song-player', 'environment-changer']
@@ -117,4 +134,3 @@ while True:
 					environmentFound = True
 			if environmentFound == True:
 				break
-			
